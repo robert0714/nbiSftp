@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="serversSchema.xsd">
+	<server serverName="Lynx FTP server transporting FNMS datas">
+		<ip>172.27.17.202</ip>
+		<port>21</port>
+		<userName>ifmcollector</userName>
+		<passwd>4rfv%TGB</passwd>
+		<sFtp>0</sFtp>
+		<filePatterns>
+			<filePattern description="WBTS_RCx">
+				<pattern>RCx_siteconf_yyyymmdd</pattern>				
+				<remoteFolderName>Traffic/Nokia_3G/RAN/Xml/WBTS/</remoteFolderName>
+				<localFolderName>TWM/Lynx/WBTS</localFolderName>
+				<CustomLogicClassName>com.twm.nbi.behaviors.DynamicCustomBehaviorWBTRCx</CustomLogicClassName>
+				<putOrGet>1</putOrGet>
+				<bulkTransport>1</bulkTransport>
+				<compressPut>0</compressPut>
+			</filePattern>		
+			<filePattern description="rnc_srcdata">				
+				<pattern>RNC.*</pattern>				
+				<remoteFolderName>/Traffic/Nokia_3G/RAN/Xml/</remoteFolderName>
+				<localFolderName>TWM/Lynx/rnc</localFolderName>
+				<putOrGet>1</putOrGet>
+				<bulkTransport>1</bulkTransport>
+				<compressPut>0</compressPut>
+			</filePattern>
+			<filePattern description="siteview3g">				
+				<pattern>siteview3g.xls</pattern>				
+				<remoteFolderName>/Traffic/Nokia_3G/RAN/Cfg</remoteFolderName>
+				<localFolderName>TWM/Lynx/site</localFolderName>
+				<putOrGet>1</putOrGet>
+				<bulkTransport>0</bulkTransport>
+				<compressPut>0</compressPut>
+			</filePattern>
+			<filePattern description="actual_AXC">				
+				<pattern>actual_AXC_.*</pattern>				
+				<remoteFolderName>/Traffic/Nokia_3G/RAN/Xml/AXC/xml/</remoteFolderName>
+				<localFolderName>TWM/Lynx/actual_AXC</localFolderName>
+				<putOrGet>1</putOrGet>
+				<bulkTransport>1</bulkTransport>
+				<compressPut>0</compressPut>
+			</filePattern>
+			<filePattern description="actual_FTM">				
+				<pattern>actual_FTM_.*</pattern>				
+				<remoteFolderName>/Traffic/Nokia_3G/RAN/Xml/WBTS/xml/</remoteFolderName>
+				<localFolderName>TWM/Lynx/actual_FTM</localFolderName>
+				<putOrGet>1</putOrGet>
+				<bulkTransport>1</bulkTransport>
+				<compressPut>0</compressPut>
+			</filePattern>
+			<filePattern description="TWM_ATM">				
+				<pattern>.*</pattern>				
+				<remoteFolderName>/Traffic/Nokia_3G/RAN/Xml/TWM_ATM</remoteFolderName>
+				<localFolderName>TWM/Lynx/TWM_ATM</localFolderName>
+				<putOrGet>1</putOrGet>
+				<bulkTransport>1</bulkTransport>
+				<compressPut>0</compressPut>
+			</filePattern>			
+		</filePatterns>
+	</server>
+	<server serverName="iPM FTP server transporting FNMS datas">
+		<ip>172.18.107.76</ip>
+		<port>21</port>
+		<userName>irm</userName>
+		<passwd>irmupload</passwd>
+		<sFtp>0</sFtp>
+		
+		<filePatterns>
+			<filePattern description="me-vpn">
+				<pattern>FNMS_C17_me-vpn_\\d{8}.csv</pattern>				
+				<remoteFolderName>/</remoteFolderName>
+				<localFolderName>TFN/Metro</localFolderName>
+				<putOrGet>0</putOrGet>
+				<bulkTransport>0</bulkTransport>
+				<compressPut>0</compressPut>
+			</filePattern>
+			<filePattern description="ip-vpn">
+				<pattern>FNMS_C09_ip-vpn_\\d{8}.csv</pattern>				
+				<remoteFolderName>/</remoteFolderName>
+				<localFolderName>TFN/IP-VPN</localFolderName>
+				<putOrGet>0</putOrGet>
+				<bulkTransport>0</bulkTransport>
+				<compressPut>0</compressPut>
+			</filePattern>			
+		</filePatterns>
+	</server>
+	<server serverName="iPM FTP server transporting FNMS datas">
+		<ip>172.18.107.64</ip>
+		<port>21</port>
+		<userName>irm</userName>
+		<passwd>irmupload</passwd>		
+		<sFtp>0</sFtp>
+		<filePatterns>			
+			<filePattern description="siteview3g">
+				<pattern>siteview3g.xls</pattern>
+				<remoteFolderName>/</remoteFolderName>
+				<localFolderName>TWM/Lynx/site</localFolderName>
+				<putOrGet>0</putOrGet>
+				<bulkTransport>0</bulkTransport>
+				<compressPut>0</compressPut>
+			</filePattern>
+		</filePatterns>
+	</server>
+	<server serverName="iFM FTP server transporting FNMS datas">
+		<ip>172.18.1.51</ip>
+		<port>21</port>
+		<userName>topouser</userName>
+		<passwd>topouser</passwd>
+		<sFtp>0</sFtp>
+		
+		<filePatterns>
+			<filePattern description="me-vpn">
+				<pattern>FNMS_C17_me-vpn_\\d{8}.csv</pattern>				
+				<remoteFolderName>/ExtSD7/topodata/</remoteFolderName>
+				<localFolderName>TFN/Metro</localFolderName>
+				<putOrGet>0</putOrGet>
+				<bulkTransport>0</bulkTransport>
+				<compressPut>0</compressPut>
+			</filePattern>
+			<filePattern description="ip-vpn">
+				<pattern>FNMS_C09_ip-vpn_\\d{8}.csv</pattern>				
+				<remoteFolderName>/ExtSD7/topodata/</remoteFolderName>
+				<localFolderName>TFN/IP-VPN</localFolderName>
+				<putOrGet>0</putOrGet>
+				<bulkTransport>0</bulkTransport>
+				<compressPut>0</compressPut>
+			</filePattern>
+			<filePattern description="actual_AXC">
+				<pattern>actual_AXC_.*</pattern>				
+				<remoteFolderName>/ExtSD7/topodata/</remoteFolderName>
+				<localFolderName>TWM/Lynx/actual_AXC</localFolderName>
+				<putOrGet>0</putOrGet>
+				<bulkTransport>1</bulkTransport>
+				<compressPut>1</compressPut>
+			</filePattern>
+			<filePattern description="actual_FTM">
+				<pattern>actual_FTM_.*</pattern>				
+				<remoteFolderName>/ExtSD7/topodata/</remoteFolderName>
+				<localFolderName>TWM/Lynx/actual_FTM</localFolderName>
+				<putOrGet>0</putOrGet>
+				<bulkTransport>1</bulkTransport>
+				<compressPut>1</compressPut>
+			</filePattern>
+		</filePatterns>
+	</server>
+	<server serverName="iFM FTP server transporting iRM NBI datas">
+		<ip>172.18.1.51</ip>
+		<port>21</port>
+		<userName>topouser</userName>
+		<passwd>topouser</passwd>
+		<sFtp>0</sFtp>
+		
+		<filePatterns>
+			<filePattern description="NBI_file">
+				<pattern>NBI_.*.zip</pattern>				
+				<remoteFolderName>/ExtSD7/topodata/CarrierE</remoteFolderName>
+				<localFolderName>UIM/NBI</localFolderName>
+				<putOrGet>0</putOrGet>
+				<bulkTransport>1</bulkTransport>
+				<compressPut>0</compressPut>
+			</filePattern>
+		</filePatterns>
+	</server>
+	<server serverName="CE/ME config file datas">
+		<ip>172.27.21.2</ip>
+		<port>22</port>
+		<userName>irmftp</userName>
+		<passwd>irmftp123</passwd>
+		<sFtp>1</sFtp>		
+		<filePatterns>
+			<filePattern description="CE/ME_file">
+				<pattern>.*.gz</pattern>				
+				<remoteFolderName>/var/me_cx_config/config</remoteFolderName>
+				<localFolderName>UIM/CEMEconfig</localFolderName>
+				<putOrGet>1</putOrGet>
+				<bulkTransport>1</bulkTransport>
+				<compressPut>0</compressPut>
+			</filePattern>
+		</filePatterns>
+	</server>
+</servers>

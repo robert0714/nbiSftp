@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+      NBI temp solution Ftp schema for TWM.com.
+      Copyright 2011 STI.com. All rights reserved.
+    </xsd:documentation>
+  </xsd:annotation>
+
+
+  <xsd:element name="servers">
+    <xsd:complexType>
+      <xsd:sequence>
+      	<xsd:element ref="server" minOccurs="0" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+
+  <xsd:element name="server" type="ServerType"/>
+  
+  <xsd:complexType name="ServerType">
+    <xsd:sequence>
+
+    	<xsd:element name="ip" type="xsd:string" maxOccurs="1"
+    		minOccurs="1">
+    	</xsd:element>
+    	<xsd:element name="port" type="xsd:string" maxOccurs="1"
+    		minOccurs="0">
+    	</xsd:element>
+    	<xsd:element name="userName" type="xsd:string" maxOccurs="1"
+    		minOccurs="0">
+    	</xsd:element>
+    	<xsd:element name="passwd" type="xsd:string" maxOccurs="1"
+    		minOccurs="0">
+    	</xsd:element>
+    	<xsd:element name="sFtp" type="xsd:boolean" maxOccurs="1" minOccurs="1"></xsd:element>
+    	<xsd:element name="filePatterns" type="FilePatternType"
+    		maxOccurs="1" minOccurs="1">
+    	</xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="serverName" type="xsd:string"/>
+  </xsd:complexType>
+  
+  <xsd:complexType name="FileDetailRecordType">
+  	<xsd:sequence>
+  		<xsd:element name="pattern" type="xsd:string"></xsd:element>
+  		<xsd:element name="remoteFolderName" type="xsd:string"></xsd:element>
+  		<xsd:element name="localFolderName" type="xsd:string"></xsd:element>
+  		<xsd:element name="CustomLogicClassName"  minOccurs="0" maxOccurs="1" nillable="true"  type="xsd:string"></xsd:element>
+  		<xsd:element name="putOrGet" type="xsd:boolean" maxOccurs="1" minOccurs="1"></xsd:element>
+  		<xsd:element name="bulkTransport" type="xsd:boolean"></xsd:element>
+  		<xsd:element name="compressPut" type="xsd:boolean"></xsd:element>
+  	</xsd:sequence>
+  	<xsd:attribute name="description" type="xsd:string"></xsd:attribute>
+  </xsd:complexType>
+
+  <xsd:complexType name="FilePatternType">
+  	<xsd:sequence>
+  		<xsd:element name="filePattern" type="FileDetailRecordType" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+  	</xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>
