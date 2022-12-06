@@ -10,7 +10,7 @@ import nbi.protocols.Behavior;
 import nbi.protocols.Connection;
 
 import org.apache.commons.net.ftp.FTPClient;
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;import org.slf4j.Logger;
 
 
  
@@ -25,7 +25,7 @@ import org.apache.log4j.Logger;
 public abstract class AbstractFtpConnect implements Connection{
 	protected final ServerAdapter server;
 	protected final  Behavior[] behaviors;
-	protected final static Logger  log = Logger.getLogger(AbstractFtpConnect.class);
+	protected final static Logger  log = LoggerFactory.getLogger(AbstractFtpConnect.class);
 	protected final FTPClient ftp = new FTPClient();
 	private final   List<String> messageList = new ArrayList<String>();
 	/**
@@ -87,7 +87,7 @@ public abstract class AbstractFtpConnect implements Connection{
 		} catch (FileNotFoundException e) {
 			messageList.add( ip +" FileNotFoundException.");
 			log.info("FileNotFoundException");
-			log.info(e.getMessage()==null?e:e.getMessage());
+			log.info(e.getMessage(),e);
 		}catch (IOException e) {
 			StackTraceElement[] aStackTraceElements = e.getStackTrace();
 			for(StackTraceElement aStackTrace :aStackTraceElements){
@@ -104,7 +104,7 @@ public abstract class AbstractFtpConnect implements Connection{
 					log.info("Success to  close the connection: "+ip);
 				} catch (IOException e) {					
 					log.info("Failed to  close the connection: "+ip);
-					log.info(e.getMessage()==null?e:e.getMessage());
+					log.info(e.getMessage(),e);
 					messageList.add("Failed to  close the connection: "+ip);
 				}
 			}

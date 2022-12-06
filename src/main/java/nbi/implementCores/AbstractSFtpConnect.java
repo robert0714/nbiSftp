@@ -15,7 +15,7 @@ import org.apache.commons.vfs2.UserAuthenticator;
 import org.apache.commons.vfs2.auth.StaticUserAuthenticator;
 import org.apache.commons.vfs2.impl.DefaultFileSystemConfigBuilder;
 import org.apache.commons.vfs2.impl.StandardFileSystemManager;
-import org.apache.log4j.Logger; 
+import org.slf4j.LoggerFactory;import org.slf4j.Logger; 
 
 
 /**
@@ -27,7 +27,7 @@ public abstract class AbstractSFtpConnect implements Connection{
 	protected FileSystemOptions opts ;
 	protected final ServerAdapter server;
 	protected final  Behavior[] behaviors;
-	protected final static Logger  log = Logger.getLogger(AbstractSFtpConnect.class);
+	protected final static Logger  log = LoggerFactory.getLogger(AbstractSFtpConnect.class);
 	private final   List<String> messageList = new ArrayList<String>();
 	protected String today;
 	/**

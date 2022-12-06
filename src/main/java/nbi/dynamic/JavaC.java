@@ -6,6 +6,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  */
 public final class JavaC {
@@ -36,11 +37,15 @@ public final class JavaC {
 	public String compile(String srcFiles[]) {
 		StringWriter err = new StringWriter();
 		PrintWriter errPrinter = new PrintWriter(err);
-
+        
 		String args[] = buildJavacArgs(srcFiles);
 		int resultCode=0;
 		try {
-			resultCode = com.sun.tools.javac.Main.compile(args, errPrinter);
+			//https://stackoverflow.com/questions/73024617/java-11-include-jdk-compiler-com-sun-tools-javac-classes-into-project
+			javax.tools.JavaCompiler compiler =  javax.tools.ToolProvider.getSystemJavaCompiler();
+			//https://docs.oracle.com/en/java/javase/11/docs/api/java.compiler/javax/tools/JavaCompiler.html
+			
+			resultCode =  com.sun.tools.javac.main.Main.compile(args, errPrinter);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

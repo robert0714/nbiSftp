@@ -3,7 +3,7 @@ package nbi.dynamic;
 import java.io.File;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;import org.slf4j.Logger;
 
 /**
  * As a wrapper to call the DynamicCodeLoader to load the class on the fly. <br>
@@ -17,7 +17,7 @@ public final class DynamicClassFactory {
 	private static String config = "dynamic";
 	private static boolean isDynamic = true;
 	private static String srcDir;
-	final static Logger  log = Logger.getLogger(DynamicClassFactory.class);
+	final static Logger  log = LoggerFactory.getLogger(DynamicClassFactory.class);
 	static {
 		try {
 			srcDir = (System.getProperty("metasolv.home") + "/src").replace(

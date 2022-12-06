@@ -10,7 +10,7 @@ import java.util.zip.Adler32;
 import java.util.zip.CheckedOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;import org.slf4j.Logger;
 
 /**
  * @author robert.lee
@@ -18,7 +18,7 @@ import org.apache.log4j.Logger;
  */
 public class ZipUtils {
 	static final int BUFFER = 2048;
-	final static Logger  log = Logger.getLogger(ZipUtils.class);
+	final static Logger  log = LoggerFactory.getLogger(ZipUtils.class);
 	
 	
 	/**
@@ -51,14 +51,14 @@ public class ZipUtils {
 //				log.debug("checksum: "+checksum.getChecksum().getValue());
 			}			
 		} catch (Exception e) {
-			log.info(e.getMessage()==null?e:e.getMessage());
+			log.info(e.getMessage() ,e );
 			e.printStackTrace();
 		}finally{
 			if(out!=null){
 				try {
 					out.close();
 				} catch (IOException e) {
-					log.info(e.getMessage()==null?e:e.getMessage());
+					log.info(e.getMessage(),e);
 					e.printStackTrace();
 				}
 			}

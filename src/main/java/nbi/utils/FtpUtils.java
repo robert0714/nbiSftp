@@ -16,14 +16,14 @@ import java.util.Map;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;import org.slf4j.Logger;
 
 /**
  * @author robert.lee
  * @version $Revision: 1.0 $
  */
 public class FtpUtils {
-	final static Logger  log = Logger.getLogger(FtpUtils.class);
+	final static Logger  log = LoggerFactory.getLogger(FtpUtils.class);
 	private final static   List<String> messageList = new ArrayList<String>();
 	/**
 	 * Method getMessageList.	
@@ -83,7 +83,7 @@ public class FtpUtils {
 						inputStream.close();
 				} catch (IOException e) {
 					log.info("IOException");
-					log.info(e.getMessage()==null?e:e.getMessage());
+					log.info(e.getMessage() ,e );
 					if(e.getMessage()!=null){
 						log.info( e.getMessage());
 						messageList.add(ftpClient.getRemoteAddress()+" : "+ftpClient.getRemotePort()+" "+ftpClient.getReplyString() +" "+e.getMessage());

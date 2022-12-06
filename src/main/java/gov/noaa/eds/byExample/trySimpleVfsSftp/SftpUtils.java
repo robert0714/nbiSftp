@@ -12,8 +12,10 @@ import org.apache.commons.vfs2.UserAuthenticator;
 import org.apache.commons.vfs2.auth.StaticUserAuthenticator;
 import org.apache.commons.vfs2.impl.DefaultFileSystemConfigBuilder;
 import org.apache.commons.vfs2.impl.StandardFileSystemManager;
-import org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilder;
-import org.apache.log4j.Logger;
+import org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilder; 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * All credits for
@@ -31,8 +33,8 @@ import org.apache.log4j.Logger;
  * @author robert.lee
  * @version $Revision: 1.0 $
  */
-public class SftpUtils {
-	private final static Logger log = Logger.getLogger(SftpUtils.class);
+public class SftpUtils { 
+	protected final static Logger log = LoggerFactory.getLogger(SftpUtils.class);
 
 	/**
 	 * Method upload.

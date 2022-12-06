@@ -17,14 +17,14 @@ import javax.mail.internet.InternetAddress;
 
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;import org.slf4j.Logger;
 
 
 
 /**
  */
 public class SendEmailNotification {
-	final static Logger  log = Logger.getLogger(SendEmailNotification.class);
+	final static Logger  log = LoggerFactory.getLogger(SendEmailNotification.class);
 	private String emailSmtpHost ;
 	private int emailSmtpPort = 25;
 	private String senderName ;

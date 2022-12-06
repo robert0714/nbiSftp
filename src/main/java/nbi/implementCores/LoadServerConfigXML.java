@@ -16,12 +16,12 @@ import nbi.xsd.model.FilePatternType;
 import nbi.xsd.model.ServerType;
 import nbi.xsd.model.Servers;
 
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;import org.slf4j.Logger;
 
 /**
  */
 public class LoadServerConfigXML {
-	final static Logger log = Logger.getLogger(LoadServerConfigXML.class);
+	final static Logger log = LoggerFactory.getLogger(LoadServerConfigXML.class);
 
 	/**
 	 * @param args

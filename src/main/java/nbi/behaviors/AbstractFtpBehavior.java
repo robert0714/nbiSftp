@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 import nbi.protocols.DynamicFtpBehavior;
 import org.apache.commons.net.ftp.FTPClient;
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;import org.slf4j.Logger;
 
 
 /**

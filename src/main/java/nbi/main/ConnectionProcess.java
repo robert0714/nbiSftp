@@ -14,12 +14,12 @@ import nbi.implementCores.SendEmailNotification.Notification;
 import nbi.utils.FtpUtils;
 import nbi.xsd.model.ServerType;
 
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;import org.slf4j.Logger;
 
 /**
  */
 public class ConnectionProcess {
-	final static Logger  log = Logger.getLogger(ConnectionProcess.class);
+	final static Logger  log = LoggerFactory.getLogger(ConnectionProcess.class);
 	final static SimpleDateFormat sdf =  new SimpleDateFormat("yyyyMMdd");
 	final static String today = sdf.format(new Date());
 	/**
@@ -59,7 +59,7 @@ public class ConnectionProcess {
 				}			
 			} catch (Exception e) {
 				e.printStackTrace();
-				log.info(e.getMessage()==null?e:e.getMessage());
+				log.info(e.getMessage(),e);
 				error=true;
 			}finally{
 				log.info("messages size: "+messages.size());
